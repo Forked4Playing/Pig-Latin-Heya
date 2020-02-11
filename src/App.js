@@ -1,5 +1,5 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 
 class App extends React.Component {
   constructor(props){
@@ -110,8 +110,8 @@ class App extends React.Component {
           Coded by ~your name here~
         </footer>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
