@@ -29,7 +29,94 @@ class App extends React.Component {
     let splitUserInput = userInput.toLowerCase().split(" ")
 
     // now that we have an array of words, we can map over the array and access each word
-    splitUserInput.map(currentWord => {
+
+    //splitLetter = [e, v, e, r, y]
+    let newArray = []
+    let noFirstLetter = []
+    let firstLetter
+    let vowelsOnly = ["a", "e", "i", "o", "u"]
+    let const1 = []
+    let const2 = []
+    let const3 = []
+
+
+
+// VOWELS
+
+
+    for (let i=0; i<splitUserInput.length; i++) {
+
+      let splitLetter = splitUserInput[i].split("")
+      if
+      (splitLetter[0] === "a" ||
+      splitLetter[0] === "e" ||
+      splitLetter[0] === "i" ||
+      splitLetter[0] === "o" ||
+      splitLetter[0] === "u")
+      {
+          newArray.push(splitLetter.join(""), "way ")
+     } else if
+      (splitLetter[0] === "q" && splitLetter[1] === "u") {
+          splitLetter.shift() //delete the first char
+          splitLetter.shift() //delete the first char again!
+          newArray.push(splitLetter.join(""), "quay ")
+    } else if
+     (splitLetter[1] === "q" && splitLetter[2] === "u") {
+         splitLetter.shift() //delete the first char
+         splitLetter.shift() //delete the first char again!
+         splitLetter.shift()
+         newArray.push(splitLetter.join(""), "squay ")
+   } else if
+    (splitLetter[0]==="y") {
+      splitLetter.shift()
+      newArray.push(splitLetter.join(""),"yay ")
+    } else {
+        if
+        (splitLetter[1] !== "a" &&
+         splitLetter[1] !== "e" &&
+         splitLetter[1] !== "i" &&
+         splitLetter[1] !== "o" &&
+         splitLetter[1] !== "u" &&
+         splitLetter[1] !== "y" &&
+         splitLetter[2] !== "a" &&
+         splitLetter[2] !== "e" &&
+         splitLetter[2] !== "i" &&
+         splitLetter[2] !== "o" &&
+         splitLetter[2] !== "u" &&
+         splitLetter[2] !== "y" ) {
+         const1 = splitLetter[0]
+         const2 = splitLetter[1]
+         const3 = splitLetter[2]
+        splitLetter.shift()
+        splitLetter.shift()
+        splitLetter.shift()
+        newArray.push(splitLetter.join(""), const1, const2, const3, "ay ")
+        }
+        else if
+        (splitLetter[1] !== "a" &&
+         splitLetter[1] !== "e" &&
+         splitLetter[1] !== "i" &&
+         splitLetter[1] !== "o" &&
+         splitLetter[1] !== "u" &&
+         splitLetter[1] !== "y") {
+           const1=splitLetter[0]
+           const2=splitLetter[1]
+           splitLetter.shift()
+           splitLetter.shift()
+           newArray.push(splitLetter.join(""), const1, const2, "ay ")
+         }
+         else {
+           const1=splitLetter[0]
+           splitLetter.shift()
+           newArray.push(splitLetter.join(""), const1, const2, "ay ")
+         }
+    }
+
+//CONST
+
+
+
+
       // ACTION ITEM: use 'currentWord' as a starting point for your code
 
 
@@ -39,8 +126,8 @@ class App extends React.Component {
 
 
       // ACTION ITEM: change the value of currentWord in the push method to the name of whatever variable you made containing your Pig Latin'd word
-      return translatedWordsArray.push(currentWord)
-    })
+}
+translatedWordsArray.push(newArray.join(""))
 
 
     // joining the array back to a string of translated words
